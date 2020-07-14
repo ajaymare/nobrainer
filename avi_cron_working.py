@@ -36,15 +36,10 @@ import schedule
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-#avi_controller = '22.242.67.121'
-#avi_username= ' '
-#avi_password = ' '
-##send_email = "avi_reporter@absa.africa"
-#send_email = "270_UAT@absa.africa"
-receive_email = "CoreServices.LoadBalancer@absa.africa"
-receive_email = "marea@vmware.com"
-smtp_ip = '22.240.20.32'
-smtp_port = '25'
+receive_email = "example@example.com"
+receive_email = "admin@example.com"
+smtp_ip = 'smtpip'
+smtp_port = 'smtpport'
 
 
 # All the Function Defined below perform Api Call to Avi Controller Cluster IP address as per the variables
@@ -277,11 +272,7 @@ def avi_health():
 def main(avi_controller):
 
     avi_health()
-    #sender_email = "avi_reporter@absa.africa"
     sender_email = send_email
-    #receiver_email = "CoreServices.LoadBalancer@absa.africa"
-    #receiver_email = "marea@vmware.com"
-    #receiver_email = "addon.mtonga@absa.co.za"
     receiver_email = receive_email
     message = MIMEMultipart()
     message["Subject"] = "[Avi] Morning Check Report for cluster: {}".format(avi_controller)
@@ -290,7 +281,6 @@ def main(avi_controller):
     with open('report.log') as fh:
         buf = fh.read()
     message.attach(MIMEText(buf))
-    #server = smtplib.SMTP("22.240.20.32", 25)
     server = smtplib.SMTP(smtp_ip, smtp_port)
     print ("Sending Email.....")
     server.sendmail(sender_email, receiver_email, message.as_string())
