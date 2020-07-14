@@ -7,9 +7,9 @@ from avi.sdk.avi_api import ApiSession
 
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-avi_controller = '10.206.40.60'
-avi_username= 'admin'
-avi_password = 'AviNetworks123!'
+avi_controller = 'Controller IP'
+avi_username= 'Contorller username'
+avi_password = 'Controller Password'
 
 separator = '-'*80
 
