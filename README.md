@@ -7,3 +7,5 @@ http_get.py ---> run http and https get request to defined IP Address.
                  .http_gey.py <ip address>
   
 get_cert_on_vs.py --> python3 get_cert_on_vs.py will return the specified certificate mapped to list of virtual services
+  
+avi_ns1.py --> is customer script where it will create DNS record on NS1 based on VS created/deletes/updated on AVI
